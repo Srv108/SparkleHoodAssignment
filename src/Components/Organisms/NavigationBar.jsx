@@ -1,7 +1,7 @@
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import SearchBox from "../Molecules/SearchBox"
 import { Button } from "../ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../ui/dropdown-menu"
+import SearchBox from "../Molecules/SearchBox"
 
 export const NavigationBar = () => {
     return (

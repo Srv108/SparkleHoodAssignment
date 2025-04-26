@@ -1,16 +1,19 @@
+import useGetIncidents from "@/hooks/useGetIncidents";
 import { Items } from "../Molecules/items";
 import { ScrollArea } from "../ui/scroll-area";
-import list from "../../lib/RawData";
+import list from "../Utils/RawData"
 import { useEffect, useState } from "react";
 
 export const Section = () => {
 
     const [ data, setData ] = useState([]);
-    
+    const { incidents } = useGetIncidents();
+
     useEffect(() => {
-        console.log(list);
-        setData(list);
-    },[]);
+        console.log("Updated incidents: ", incidents);
+        setData(incidents.length ? incidents : list);  // fallback to list if empty
+    }, [incidents]);
+    
 
     return (
         <div className="w-full flex flex-col gap-6 p-4">
