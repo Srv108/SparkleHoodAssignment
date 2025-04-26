@@ -5,7 +5,8 @@ const SearchBox = ({ onSearch, delay = 300 }) => {
 
     useEffect(() => {
         const handler = setTimeout(() => {
-            onSearch(input);
+            // onSearch(input);
+            console.log("input coming from the search bar",input);
         }, delay);
 
         return () => clearTimeout(handler);
