@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { formatDateTime } from "../Utils/DateFormat";
+import { formatDateTime, formatDate } from "../Utils/DateFormat";
 
 export const Items = ({ title, time, severity, description }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,9 +30,9 @@ export const Items = ({ title, time, severity, description }) => {
             {/* Toggle Details Button */}
             <div className="flex items-center justify-end text-sm text-blue-600 gap-5">
                 <button
-                    className="text-sm bg-blue-100 text-blue-700 hover:bg-blue-200 px-3 py-1 rounded"
+                    className="text-sm w-[120px] bg-blue-100 text-blue-700 hover:bg-blue-200 px-3 py-1 rounded"
                 >
-                    Show Time
+                    {formatDate(time)}
                 </button>
                 <button
                     className="hover:underline"
