@@ -30,7 +30,7 @@ This is an Incident Reporting System where users can report incidents with detai
 
 2. Navigate to the project directory.
     ```bash
-    cd incident-reporting-system
+    cd SparkleHoodAssignment
     ```
 
 3. Install dependencies using npm or yarn.
