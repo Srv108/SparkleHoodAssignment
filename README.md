@@ -25,7 +25,7 @@ This is an Incident Reporting System where users can report incidents with detai
 ### Steps
 1. Clone the repository to your local machine.
     ```bash
-    git clone https://github.com/your-username/incident-reporting-system.git
+    git clone https://github.com/Srv108/SparkleHoodAssignment.git
     ```
 
 2. Navigate to the project directory.
