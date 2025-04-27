@@ -1,3 +1,5 @@
+[Deployed Link](https://sparkle-hood-assignment-rose.vercel.app/)
+
 # Incident Reporting System
 
 This is an Incident Reporting System where users can report incidents with details such as title, severity, description, and the time it was reported. The system allows users to submit new reports through a modal form and dynamically updates the interface with the new reports. The system is implemented in React and manages data in a simple JavaScript array that can be updated as new incidents are reported.
