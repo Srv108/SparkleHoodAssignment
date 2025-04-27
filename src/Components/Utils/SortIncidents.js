@@ -6,7 +6,7 @@ export const SortIncidentsByOldest = (incidents) => {
     }
 
     const newIncidents = [...incidents].sort((a, b) =>
-        new Date(b.reported_at) - new Date(a.reported_at)
+        new Date(a.reported_at) - new Date(b.reported_at)
     );
 
     return newIncidents;
