@@ -11,7 +11,7 @@ import SearchBox from "../Molecules/SearchBox";
 import useGetIncidents from "@/hooks/useGetIncidents";
 
 export const NavigationBar = () => {
-    const { latestFlag, setLatestFlag, setSeverity } = useGetIncidents();
+    const { latestFlag, setLatestFlag, serverity, setSeverity } = useGetIncidents();
 
     return (
         <div className="w-full bg-white shadow-lg p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
@@ -67,6 +67,7 @@ export const NavigationBar = () => {
                                 key={level}
                                 className="hover:bg-gray-100 cursor-pointer"
                                 onClick={() => setSeverity(level)}
+                                disabled={serverity == level}
                             >
                                 {level}
                             </DropdownMenuItem>

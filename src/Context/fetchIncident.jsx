@@ -1,3 +1,4 @@
+import { filterData } from "@/Components/Utils/FilterData";
 import { SortIncidentsByLatest, SortIncidentsByOldest } from "@/Components/Utils/SortIncidents";
 import { createContext, useEffect, useState } from "react";
 
@@ -19,6 +20,14 @@ export const IncidentContextProvider = ({ children }) => {
             if(newIncidents) setIncidents(newIncidents);
         }
     },[ latestFlag ])
+
+    useEffect(() => {
+        console.log('severity level is ',serverity);
+        if(serverity) {
+            const newFilteredIncidents = filterData(serverity);
+            if(newFilteredIncidents) setIncidents(newFilteredIncidents);
+        }
+    },[ serverity ])
 
     return (
         <IncidentContext.Provider
