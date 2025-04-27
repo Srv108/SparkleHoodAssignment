@@ -40,9 +40,8 @@ This is an Incident Reporting System where users can report incidents with detai
 
 4. Start the development server.
     ```bash
-    npm start
-    # OR
-    yarn start
+    npm run dev
+   
     ```
 
 5. Open your browser and go to `http://localhost:3000` to see the application in action.
