@@ -1,51 +1,46 @@
 import useGetIncidents from "@/hooks/useGetIncidents";
 import { Items } from "../Molecules/items";
 import { ScrollArea } from "../ui/scroll-area";
-import list from "../Utils/RawData"
+import list from "../Utils/RawData";
 import { useEffect, useState } from "react";
 
 export const Section = () => {
-
-    const [ data, setData ] = useState([]);
+    const [data, setData] = useState([]);
     const { incidents } = useGetIncidents();
 
     useEffect(() => {
         console.log("Updated incidents: ", incidents);
-        setData(incidents.length ? incidents : list);  // fallback to list if empty
+        setData(incidents.length ? incidents : list); // fallback to list if empty
     }, [incidents]);
-    
 
     return (
         <div className="w-full flex flex-col gap-6 p-4">
 
-        {/* Incident List */}
-        <div className="bg-white rounded-lg shadow p-4">
-            <ScrollArea className="h-[500px]">
-            {
-                data.map((item) => {
-                    return (
-                        <div key={item.id} className="border p-4 my-2 rounded shadow">
-                            <Items
-                                title={item.title}
-                                time={item.reported_at}
-                                severity={item.severity}
-                            />
-                        </div>
-                    )
-                })
-            }
-
-            {/* You can render multiple <Items /> or map over data */}
-            </ScrollArea>
-        </div>
+        {/* Scrollable Incident List */}
+        <ScrollArea className="h-[500px] bg-white rounded-lg shadow p-4">
+            <div className="flex flex-col gap-2">
+            {data.map((item) => (
+                <div
+                    key={item.id}
+                    className=" gap-4 bg-white rounded-md p-4 shadow-sm hover:shadow-md transition-all"
+                >
+                    <Items
+                        title={item.title}
+                        time={item.reported_at}
+                        severity={item.severity}
+                        description={item.description}
+                    />
+                </div>
+            ))}
+            </div>
+        </ScrollArea>
 
         {/* Pagination */}
         <div className="flex justify-center">
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2 rounded-md transition">
-                Load More
+            Load More
             </button>
         </div>
-        
         </div>
     );
-}
+};
