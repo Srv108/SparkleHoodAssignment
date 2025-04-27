@@ -1,19 +1,47 @@
+import useGetIncidents from "@/hooks/useGetIncidents";
 import React, { useState } from "react";
+import { updateData } from "../Utils/updateData";
 
 export const AddIncidentModal = ({ open, setOpen }) => {
+
 
     const [ newIncidentDetails, setNewIncidentsDetails ] = useState({
         title: null,
         severity: null,
-        description: null
+        description: null,
     });
+
+    const { incidents, setIncidents } = useGetIncidents();
 
     if(!open) return;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const date = new Date();
-        console.log('new incident report',newIncidentDetails,date);
+
+        /* to genrate current date and time */
+        const currentTime = new Date().toISOString();
+
+        /* to generate unique id */
+        const uniqueID = Date.now();
+
+        // Create the new incident object
+        const newIncident = {
+            ...newIncidentDetails,
+            id: uniqueID,
+            reported_at: currentTime,
+        };
+
+        console.log('new incident report',newIncident);
+
+        /* update the database when new report comes */
+        setIncidents({
+            newIncident,
+            ...incidents
+        })
+
+        /* also push this data to the original raw data */
+        updateData(newIncident);
+
         setOpen(false);
         setNewIncidentsDetails({
             title: null,

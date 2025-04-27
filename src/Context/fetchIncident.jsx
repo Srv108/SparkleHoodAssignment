@@ -29,6 +29,14 @@ export const IncidentContextProvider = ({ children }) => {
         }
     },[ serverity ])
 
+    /* on first render of the component list should be in latest -> oldest order */
+    useEffect(() => {
+        if(incidents) {
+            const newFetchedData = SortIncidentsByLatest(incidents);
+            setIncidents(newFetchedData);
+        }
+    }, []);
+    
     return (
         <IncidentContext.Provider
             value={{ 

@@ -34,4 +34,5 @@ const list = [
     { "id": 33, "title": "Privacy Policy Missing", "description": "The website did not display the privacy policy, violating legal requirements.", "severity": "High", "reported_at": "2025-04-03T09:00:00Z" },
 ]
 
+
 export default list;

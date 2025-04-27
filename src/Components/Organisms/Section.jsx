@@ -3,6 +3,7 @@ import { Items } from "../Molecules/items";
 import { ScrollArea } from "../ui/scroll-area";
 import list from "../Utils/RawData";
 import { useEffect, useState } from "react";
+import { SortIncidentsByLatest } from "../Utils/SortIncidents";
 
 export const Section = () => {
     const [data, setData] = useState([]);
